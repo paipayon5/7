@@ -15,7 +15,7 @@ function send_LINE($msg){
       $data = [
 
         'to' => 'Ue77a191627f6ac91899e75d92264310c',
-        'messages' => [$messages],
+        'messages' => ['1234'],
       ];
       $post = json_encode($data);
       $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
