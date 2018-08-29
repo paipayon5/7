@@ -35,12 +35,8 @@ if($message == "A"){
       $result = curl_exec($ch);
       curl_close ($ch);
    }
-   exit;
-   public function getUserId()
-    {
-        return array_key_exists('userId', $this->event['source'])
-            ? $this->event['source']['userId']
-            : null;
-    }
 
+
+
+   exit;
 ?>
