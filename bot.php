@@ -31,6 +31,7 @@ $objDB = mssql_select_db("PAItest");
 $strSQL = "INSERT INTO USERLINE ";
 $strSQL .="(userline) ";
 $strSQL .="$i2";
+echo $i2;
 }
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
