@@ -29,7 +29,7 @@ if($message == "A"){
 $objConnect = mssql_connect("localhost","sa","1234") or die("Error Connect to Database");
 $objDB = mssql_select_db("PAItest");
 $strSQL = "INSERT INTO USERLINE ";
-$strSQL .="(userline) ";
+$strSQL .="('userline')";
 $strSQL .="$i2";
 $objQuery = mssql_query($strSQL);
 echo "$i2";
