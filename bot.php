@@ -20,6 +20,7 @@ if($message == "A"){
       $arrayPostData['messages'][0]['text'] = "$value";
       pushMsg($arrayHeader,$arrayPostData);
 } 
+   $i[]="getUserId()";
 }
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
@@ -35,4 +36,11 @@ if($message == "A"){
       curl_close ($ch);
    }
    exit;
+   public function getUserId()
+    {
+        return array_key_exists('userId', $this->event['source'])
+            ? $this->event['source']['userId']
+            : null;
+    }
+
 ?>
