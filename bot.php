@@ -26,13 +26,23 @@ if($message == "A"){
       $arrayPostData['messages'][0]['text'] = "$value";
       pushMsg($arrayHeader,$arrayPostData);
 } 
-$objConnect = mssql_connect("localhost","sa","1234"); or die("Error Connect to Database");
+$objConnect = mssql_connect("localhost","sa","1234");
 $objDB = mssql_select_db("PAItest");
 $strSQL = "INSERT INTO USERLINE ";
 $strSQL .="('userline')";
 $strSQL .="$i2";
 $objQuery = mssql_query($strSQL);
 echo "$i2";
+if($objConnect){
+	$arrayPostData['to'] = $id;
+    $arrayPostData['messages'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['text'] = "DATAbase";}
+}else {
+	$arrayPostData['to'] = $id;
+    $arrayPostData['messages'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['text'] = "ERROR";}
+}
+mssql_close($objConnect);
 }
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
