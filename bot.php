@@ -20,7 +20,7 @@ if($message == "A"){
       $arrayPostData['messages'][0]['text'] = "$value";
       pushMsg($arrayHeader,$arrayPostData);
 } 
-   $i[]="getUserId()";
+   //$i[]="getUserId()";
 }
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
