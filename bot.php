@@ -26,7 +26,7 @@ if($message == "A"){
       $arrayPostData['messages'][0]['text'] = "$value";
       pushMsg($arrayHeader,$arrayPostData);
 } 
-$objConnect = mssql_connect("DESKTOP-COSDM0D","sa","1234") or die("Error Connect to Database");
+$objConnect = mssql_connect("localhost","sa","1234"); or die("Error Connect to Database");
 $objDB = mssql_select_db("PAItest");
 $strSQL = "INSERT INTO USERLINE ";
 $strSQL .="('userline')";
