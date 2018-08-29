@@ -9,13 +9,15 @@
    $message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
    $id = $arrayJson['events'][0]['source']['userId'];
+$i = array("Ue3b41e181bccb599dd963e7bf301ddd8", "Ue3b41e181bccb599dd963e7bf301ddd8", "Ue3b41e181bccb599dd963e7bf301ddd8");
 if($message == "A"){  
-//for($i=0;$i=2;$i++){
-      $arrayPostData['to'] = $id;
+for($i as $value){
+      $arrayPostData['to'] = $i;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "$id";
+   $arrayPostData['messages'][1]['text'] = "a";
       pushMsg($arrayHeader,$arrayPostData);
-  // }
+   }
 }
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
