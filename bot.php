@@ -6,9 +6,9 @@
    $arrayHeader[] = "Content-Type: application/json";
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
    //รับข้อความจากผู้ใช้
-   $message = $arrayJson['events'][0]['message']['text'];
+   //$message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
-   $id = $arrayJson['events'][0]['source']['userId'];
+   $id = Ue3b41e181bccb599dd963e7bf301ddd8;
 if($id <> ''){ $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "$id";
@@ -44,8 +44,5 @@ if($message == "A"){
             ? $this->event['source']['userId']
             : null;
     }
-
-
-
    exit;
 ?>
