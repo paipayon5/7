@@ -13,12 +13,12 @@ $i = array("Ue3b41e181bccb599dd963e7bf301ddd8", "Ue3b41e181bccb599dd963e7bf301dd
 if($message == "A"){  
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$id";
+      $arrayPostData['messages'][0]['text'] = "$message";
       pushMsg($arrayHeader,$arrayPostData);
-   for ($x = 0; $x <= 10; $x++) {
+   while ($x = 0; $x <= $i.length; $x++) {
     echo "The number is: $x <br>";
        $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$x";
+      $arrayPostData['messages'][0]['text'] = "$i";
       pushMsg($arrayHeader,$arrayPostData);
 } 
 }
