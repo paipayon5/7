@@ -12,10 +12,11 @@
 $i = array("Ue3b41e181bccb599dd963e7bf301ddd8", "Ue3b41e181bccb599dd963e7bf301ddd8", "Ue3b41e181bccb599dd963e7bf301ddd8");
 if($message == "A"){  
 for($i as $value){
-      $arrayPostData['to'] = $i;
+      $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "$id";
-   $arrayPostData['messages'][1]['text'] = "a";
+      $arrayPostData['messages'][1]['type'] = "text";
+      $arrayPostData['messages'][1]['text'] = "$i";
       pushMsg($arrayHeader,$arrayPostData);
    }
 }
