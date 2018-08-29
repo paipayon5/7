@@ -30,7 +30,7 @@ $objConnect = mssql_connect("localhost","sa","1234");
 $objDB = mssql_select_db("PAItest");
 $strSQL = "INSERT INTO USERLINE ";
 $strSQL .="('userline')";
-$strSQL .="$i2";
+$strSQL .="123";
 $objQuery = mssql_query($strSQL);
 echo "$i2";
 if($objConnect){
