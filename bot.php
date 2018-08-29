@@ -16,7 +16,6 @@ if($message == "A"){
       $arrayPostData['messages'][0]['text'] = "$message";
       pushMsg($arrayHeader,$arrayPostData);
    while ($x = 0; $x <= $i.length; $x++) {
-    echo "The number is: $x <br>";
        $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "$i";
       pushMsg($arrayHeader,$arrayPostData);
