@@ -15,9 +15,9 @@ if($message == "A"){
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "$message";
       pushMsg($arrayHeader,$arrayPostData);
-   while ($x = 0; $x <= $i.length; $x++) {
+   foreach($i as $value) {
        $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$i";
+      $arrayPostData['messages'][0]['text'] = "$value";
       pushMsg($arrayHeader,$arrayPostData);
 } 
 }
