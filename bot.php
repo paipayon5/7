@@ -18,12 +18,12 @@
 
    }
    if($message <> ''){
-      $arrayPostData['to'] = $id;
+      $arrayPostData['to'] = "Ue3b41e181bccb599dd963e7bf301ddd8";
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "$message";
       pushMsg($arrayHeader,$arrayPostData);
    }else{
-      $arrayPostData['to'] = $id;
+      $arrayPostData['to'] = "Ue3b41e181bccb599dd963e7bf301ddd8";
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "error";
       pushMsg($arrayHeader,$arrayPostData);
