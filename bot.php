@@ -61,4 +61,4 @@ mssql_close($objConnect);
       
    exit;
 ?>
-© 2018 GitHub, Inc.
+
