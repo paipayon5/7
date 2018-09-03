@@ -9,42 +9,18 @@
    $message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
    $id = $arrayJson['events'][0]['source']['userId'];
-if($id <> ''){ $arrayPostData['to'] = $id;
+   #ตัวอย่าง Message Type "Text + Sticker"
+   if($message == "A"){
+      $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "$id";
       pushMsg($arrayHeader,$arrayPostData);
-             }
-$i = array("Ue3b41e181bccb599dd963e7bf301ddd8", "Ue3b41e181bccb599dd963e7bf301ddd8", "Ue3b41e181bccb599dd963e7bf301ddd8");
-$i2 ="Ue3b41e181bccb599dd963e7bf301ddd8";
-if($message == "A"){  
+   }else{
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$message";
-      pushMsg($arrayHeader,$arrayPostData);
-   foreach($i as $value) {
-       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$value";
+      $arrayPostData['messages'][0]['text'] = "$id";
       pushMsg($arrayHeader,$arrayPostData);
    }
-} 
-$objConnect = mssql_connect("localhost","sa","1234");
-$objDB = mssql_select_db("PAItest");
-$strSQL = "INSERT INTO USERLINE ";
-$strSQL .="('userline')";
-$strSQL .="123";
-$objQuery = mssql_query($strSQL);
-echo "$i2";
-if($objConnect){
-	$arrayPostData['to'] = $id;
-    $arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = "DATAbase";}
-}else {
-	$arrayPostData['to'] = $id;
-    $arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = "ERROR";}
-}
-mssql_close($objConnect);
-}
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
       $ch = curl_init();
@@ -58,7 +34,6 @@ mssql_close($objConnect);
       $result = curl_exec($ch);
       curl_close ($ch);
    }
-      
    exit;
 ?>
-
+ 
