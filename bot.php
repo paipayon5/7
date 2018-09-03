@@ -12,7 +12,7 @@
    $id2 ="Ue3b41e181bccb599dd963e7bf301ddd8";
 if($id <> ''){ $arrayPostData['to'] = $id2;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$id";
+      $arrayPostData['messages'][0]['text'] = "$message";
       pushMsg($arrayHeader,$arrayPostData);
              }
 if($message <> ''){
