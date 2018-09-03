@@ -11,7 +11,17 @@
    $id = $arrayJson['events'][0]['source']['userId'];
    $IDD ="Ue3b41e181bccb599dd963e7bf301ddd8";
    #ตัวอย่าง Message Type "Text + Sticker"
-
+   if($id <> ''){
+      $arrayPostData['to'] = $IDD;
+      $arrayPostData['messages'][0]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "$id";
+      pushMsg($arrayHeader,$arrayPostData);
+   }else{
+      $arrayPostData['to'] = $IDD;
+      $arrayPostData['messages'][0]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "B";
+      pushMsg($arrayHeader,$arrayPostData);
+   }
 if($message == "A"){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
