@@ -9,16 +9,17 @@
    $message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
    $id = $arrayJson['events'][0]['source']['userId'];
+   $IDD ="Ue3b41e181bccb599dd963e7bf301ddd8";
    #ตัวอย่าง Message Type "Text + Sticker"
    if($message == "A"){
-      $arrayPostData['to'] = $id;
+      $arrayPostData['to'] = $IDD;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$id";
+      $arrayPostData['messages'][0]['text'] = "$IDD";
       pushMsg($arrayHeader,$arrayPostData);
    }else{
-      $arrayPostData['to'] = $id;
+      $arrayPostData['to'] = $IDD;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$id";
+      $arrayPostData['messages'][0]['text'] = "$IDD";
       pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
