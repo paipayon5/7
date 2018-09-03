@@ -23,7 +23,7 @@
       pushMsg($arrayHeader,$arrayPostData);
    }
 
-if($message == "A"){
+if($message == 'A'){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "$id";
