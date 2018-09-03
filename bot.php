@@ -8,11 +8,14 @@
    //รับข้อความจากผู้ใช้
    $message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
-   $i =0;
    $id = $arrayJson['events'][0]['source']['userId'];
-   $id2 ="Ue3b41e181bccb599dd963e7bf301ddd8";
-
+if($id <> ''){ $arrayPostData['to'] = $id;
+      $arrayPostData['messages'][0]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "$id";
+      pushMsg($arrayHeader,$arrayPostData);
+             }
 $i = array("Ue3b41e181bccb599dd963e7bf301ddd8", "Ue3b41e181bccb599dd963e7bf301ddd8", "Ue3b41e181bccb599dd963e7bf301ddd8");
+$i2 ="Ue3b41e181bccb599dd963e7bf301ddd8";
 if($message == "A"){  
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
@@ -23,6 +26,22 @@ if($message == "A"){
       $arrayPostData['messages'][0]['text'] = "$value";
       pushMsg($arrayHeader,$arrayPostData);
 } 
+$objConnect = mssql_connect("localhost","sa","1234");
+$objDB = mssql_select_db("PAItest");
+$strSQL = "INSERT INTO USERLINE ";
+$strSQL .="('userline')";
+$strSQL .="123";
+$objQuery = mssql_query($strSQL);
+echo "$i2";
+if($objConnect){
+	$arrayPostData['to'] = $id;
+    $arrayPostData['messages'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['text'] = "DATAbase";}
+}else {
+	$arrayPostData['to'] = $id;
+    $arrayPostData['messages'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['text'] = "ERROR";}
+}
 mssql_close($objConnect);
 }
    function pushMsg($arrayHeader,$arrayPostData){
