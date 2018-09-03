@@ -20,9 +20,9 @@
       pushMsg($arrayHeader,$arrayPostData);
    }
  else{
-      $arrayPostData['to'] = $id;
+      $arrayPostData['to'] = "Ue3b41e181bccb599dd963e7bf301ddd8";
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
+      $arrayPostData['messages'][0]['text'] = "Error";
       pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
