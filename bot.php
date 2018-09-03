@@ -14,7 +14,7 @@
    if($id <> ''){
       $arrayPostData['to'] = $IDD;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$id";
+      $arrayPostData['messages'][0]['text'] = "A";
       pushMsg($arrayHeader,$arrayPostData);
    }else{
       $arrayPostData['to'] = $IDD;
