@@ -14,12 +14,12 @@
    if($message == "A"){
       $arrayPostData['to'] = $IDD;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$IDD";
+      $arrayPostData['messages'][0]['text'] = "A";
       pushMsg($arrayHeader,$arrayPostData);
    }else{
       $arrayPostData['to'] = $IDD;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$IDD";
+      $arrayPostData['messages'][0]['text'] = "B";
       pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
