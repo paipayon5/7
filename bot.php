@@ -11,7 +11,7 @@
    $i =0;
    $id = $arrayJson['events'][0]['source']['userId'];
    $id2 ="Ue3b41e181bccb599dd963e7bf301ddd8";
-if($id <> " "){ $arrayPostData['to'] = $id2;
+if($id <> ''){ $arrayPostData['to'] = $id2;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "$id2";
       pushMsg($arrayHeader,$arrayPostData);
