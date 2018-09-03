@@ -22,6 +22,14 @@
       $arrayPostData['messages'][0]['text'] = "B";
       pushMsg($arrayHeader,$arrayPostData);
    }
+
+if($message == "A"){
+   $arrayPostData['to'] = $id;
+   $arrayPostData['messages'][0]['type'] = "text";
+   $arrayPostData['messages'][0]['text'] = "$message";
+   pushMsg($arrayHeader,$arrayPostData);
+}
+
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
       $ch = curl_init();
