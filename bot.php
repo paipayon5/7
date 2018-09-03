@@ -17,7 +17,7 @@
       pushMsg($arrayHeader,$arrayPostData);
 
    }
-   if($message <> ""){
+   if($message <> ''){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "$message";
@@ -25,7 +25,7 @@
    }else{
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$message";
+      $arrayPostData['messages'][0]['text'] = "error";
       pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
