@@ -9,18 +9,23 @@
    $message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
    $id = $arrayJson['events'][0]['source']['userId'];
-   #ตัวอย่าง Message Type "Text + Sticker"
-   if($message == "A"){
-      $arrayPostData['to'] = $id;
+if($id <> ''){ $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "$id";
       pushMsg($arrayHeader,$arrayPostData);
-   }else{
+             }
+$i2 ="Ue3b41e181bccb599dd963e7bf301ddd8";
+if($message == "A"){  
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$id";
+      $arrayPostData['messages'][0]['text'] = "$message";
       pushMsg($arrayHeader,$arrayPostData);
-   }
+   foreach($i as $value) {
+       $arrayPostData['messages'][0]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "$value";
+      pushMsg($arrayHeader,$arrayPostData);
+} 
+}
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
       $ch = curl_init();
@@ -34,6 +39,6 @@
       $result = curl_exec($ch);
       curl_close ($ch);
    }
+      
    exit;
 ?>
- 
