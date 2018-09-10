@@ -1,44 +1,46 @@
 <?php
-   $accessToken = "8XiBgy0V7wVEXpkmckGTfTHO5LcdQYk5iO/Skvn/E3n7RdRtfrK5mk07kDa0EfKUuR9vuwrY8kPvOBM82VlTd3daGTzC6HH6/6i9D+6kAIP0TUqIjiIX6GkczHmUzit0wGWQGUW2boC/6oBKuHymcAdB04t89/1O/w1cDnyilFU=";//copy ข้อความ Channel access token ตอนที่ตั้งค่า
-   $content = file_get_contents('php://input');
-   $arrayJson = json_decode($content, true);
-   $arrayHeader = array();
-   $arrayHeader[] = "Content-Type: application/json";
-   $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-   //รับข้อความจากผู้ใช้
-   $message = $arrayJson['events'][0]['message']['text'];
-   //รับ id ของผู้ใช้
-   $id = $arrayJson['events'][0]['source']['userId'];
-if($id <> ''){ $arrayPostData['to'] = $id;
-      $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$id";
-      pushMsg($arrayHeader,$arrayPostData);
-             }
-$i2 ="Ue3b41e181bccb599dd963e7bf301ddd8";
-if($message == "A"){  
-      $arrayPostData['to'] = $id;
-      $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$message";
-      pushMsg($arrayHeader,$arrayPostData);
-   foreach($i as $value) {
-       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "$value";
-      pushMsg($arrayHeader,$arrayPostData);
-} 
+$access_token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+// Get POST body content
+$content = file_get_contents('php://input');
+// Parse JSON
+$events = json_decode($content, true);
+// Validate parsed JSON data
+if (!is_null($events['events'])) {
+// Loop through each event
+foreach ($events['events'] as $event) {
+// Reply only when message sent is in 'text' format
+if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+// Get text sent
+$text = $event['message']['text'];
+// Get replyToken
+$replyToken = $event['replyToken'];
+$userId = $event['source']['userId'];
+$id = $event['message']['id'];
+// Build message to reply back
+$messages = [
+'type' => 'text',
+'text' => $id,
+];
+ 
+// Make a POST Request to Messaging API to reply to sender
+$url = 'https://api.line.me/v2/bot/message/reply';
+$data = [
+'replyToken' => $replyToken,
+'messages' => [$messages],
+];
+$post = json_encode($data);
+$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+$result = curl_exec($ch);
+curl_close($ch);
+echo $result . "\r\n";
 }
-   function pushMsg($arrayHeader,$arrayPostData){
-      $strUrl = "https://api.line.me/v2/bot/message/push";
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL,$strUrl);
-      curl_setopt($ch, CURLOPT_HEADER, false);
-      curl_setopt($ch, CURLOPT_POST, true);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-      $result = curl_exec($ch);
-      curl_close ($ch);
-   }
-      
-   exit;
+}
+}
+echo "OK";
 ?>
